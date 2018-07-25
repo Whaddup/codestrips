@@ -14,4 +14,14 @@ app.listen(PORT, () => {
 });
 
 
+app.get("/strips", (req, res, next) => {
+
+  db.all("SELECT * FROM Strip", (error, x) => {
+    console.log(x)
+    res.send({strips: x})
+  })
+})
+
+  
+
 modules.exports = app;
